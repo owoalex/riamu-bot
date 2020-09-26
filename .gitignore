@@ -1,4 +1,4 @@
 # don't expose the discord api key!
-keys.json
-
-
+**/keys.json
+# node modules do not need to be shared
+**/node_modules

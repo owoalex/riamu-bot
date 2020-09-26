@@ -241,7 +241,7 @@ function getRoleStatus(message,roleName) {
     }
 }
 
-let colorRoles = ["Orang","Gold","Degen Green","R","G","B","Purple","Magenta","Hot Pink","Pastel Pink"];
+let colorRoles = ["Orang","Gold","Degen Green","R","G","B","Purple","Magenta","Hot Pink","Pastel Pink","Pastel Purple","Black"];
 
 function makeLowerCase(value) {
   return value.toString().toLowerCase();
@@ -324,6 +324,13 @@ discordClientObject.on('message', message => {
                     case 'notify':
                         if (args.length > 0) {
                             switch(makeLowerCase(args[0])) {
+                                case "all":
+                                    message.channel.send("Okay, notifying you of EVERYTHING");
+                                    addRole(message,"Notify Me About Unofficial Events");
+                                    addRole(message,"Notify Me About Unofficial Screenings");
+                                    addRole(message,"Notify Me About Unofficial Events");
+                                    addRole(message,"Notify Me About Unofficial Screenings");
+                                    break;
                                 case "events":
                                     if (getRoleStatus(message,"Notify Me About Events")) {
                                         message.channel.send("You won't be notified of official society events");
@@ -413,6 +420,7 @@ discordClientObject.on('message', message => {
                             }catch(ex){}
                         }
                         builtInsert = builtInsert + "Current Server ID :" + serverID + "\n"
+                        builtInsert = builtInsert + "Build Number :" + 3 + "\n"
                         serverGlobVars[serverID].messageChannel.send("```markdown\n" + builtInsert + "```");
                         break;
                     case 'help':
